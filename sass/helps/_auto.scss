@@ -1,0 +1,29 @@
+.main-color {
+  color: $main-color;
+}
+// Function Auto CSS Modules
+@mixin fn_auto_css($name, $property) {
+  @each $number in (0, 5, 10, 15, 20, 30) {
+    $unit: px;
+    @if (#{$number} == '0') {
+      $unit: '';
+      #{$name}-#{$number} {
+        #{$property}: #{$number};
+      }
+    }
+    #{$name}-t-#{$number} {
+      #{$property}-top: #{$number}#{$unit};
+    }
+    #{$name}-r-#{$number} {
+      #{$property}-right: #{$number}#{$unit};
+    }
+    #{$name}-bt-#{$number} {
+      #{$property}-bottom: #{$number}#{$unit};
+    }
+    #{$name}-l-#{$number} {
+      #{$property}-left: #{$number}#{$unit};
+    }
+  }
+}
+@include fn_auto_css('.mg', 'margin');
+@include fn_auto_css('.pd', 'padding');

@@ -1,0 +1,152 @@
+@media (max-width: 800px) {
+  .table {
+    font-size: 13px;
+    th,
+    td {
+      padding: 10px 8px;
+    }
+    .fix-w-state {
+      width: 40px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .fix-w-date {
+      min-width: 75px;
+      font-size: 0.75rem;
+    }
+  }
+}
+.nav-toggle {
+  display: none;
+}
+@media (max-width: 767px) {
+  .nav-toggle {
+    display: inline-block;
+    position: fixed;
+    left: 15px;
+    top: 0;
+    width: 40px;
+    z-index: 1;
+    background: #fff;
+    padding: 0 13px;
+    border-top: 0;
+    border-radius: 0 0 4px 4px;
+    border-color: #ced4da;
+    transition: 0.2s all linear;
+    &,
+    &:focus,
+    &:hover {
+      color: #ced4da;
+      box-shadow: none;
+      background-color: #fff;
+      border-color: #ced4da;
+    }
+    &::before,
+    &::after {
+      content: '';
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 9;
+      background: rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      transition: 0.2s all linear;
+    }
+    &::before {
+      content: '<';
+      background: #fff;
+      z-index: 10;
+      height: 30px;
+      width: 40px;
+      padding-top: 2px;
+      border-radius: 0 0 4px;
+    }
+  }
+  .main {
+    padding: 0;
+  }
+  .sidebar {
+    width: 100%;
+    left: -100%;
+    border: 0;
+    & + .main {
+      padding: 0;
+    }
+    .copy {
+      left: -239px;
+      transition: 0.2s all linear;
+    }
+    &-fixed,
+    &::after {
+      left: -100%;
+    }
+    &.open {
+      left: 0px;
+      .nav-toggle {
+        &::after,
+        &::before {
+          display: inline-block;
+          opacity: 1;
+          left: 239px;
+          right: 0;
+        }
+      }
+      .sidebar-fixed,
+      &::after {
+        left: 0;
+        display: block;
+      }
+      .copy {
+        left: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .table {
+    font-size: 12px;
+    th {
+      white-space: normal;
+    }
+    th,
+    td {
+      padding: 10px 5px;
+    }
+    &-align-right {
+      thead th:first-child,
+      tbody td:first-child {
+        padding-left: 0;
+      }
+      thead th:last-child,
+      tbody td:last-child {
+        padding-right: 0;
+      }
+    }
+    .btn-xs {
+      font-size: 10px;
+    }
+    .fix-w-id {
+      min-width: auto;
+    }
+    .fix-w-date {
+      min-width: 50px;
+    }
+    .multiLineEllipsis {
+      @include multiLineEllipsis(
+        $lineHeight: 1.3em,
+        $lineCount: 5,
+        $bgColor: white
+      );
+    }
+    &-warning {
+      .multiLineEllipsis {
+        &::before,
+        &::after {
+          background: #ffeeba;
+        }
+      }
+    }
+  }
+}

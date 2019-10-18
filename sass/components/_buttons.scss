@@ -1,0 +1,30 @@
+.btn-link {
+  padding: 0;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+.btn-min-width {
+  min-width: 120px;
+}
+.btn-default {
+  border-color: #ccc;
+}
+.btn-success {
+  background: #88b04b;
+  border-color: #88b04b;
+}
+.badge {
+  border: 0;
+}
+.btn-res-group {
+  .btn {
+    margin-right: 10px;
+    @media (max-width: 767px) {
+      margin-bottom: 10px;
+    }
+  }
+}

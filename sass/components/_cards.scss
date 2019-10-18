@@ -1,0 +1,191 @@
+.card {
+  margin-bottom: 20px;
+  position: relative;
+  transition: all 0.2s linear;
+  &-title {
+    margin-top: 0;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  &-number-body {
+    font-size: 16px;
+  }
+  &-body {
+    padding-bottom: 0;
+  }
+  &-footer {
+    border: 0;
+    background: none;
+    padding-top: 0.5rem;
+    text-align: right;
+    line-height: 1;
+  }
+  &-number-foo {
+    font-size: 2rem;
+    margin-right: 2px;
+  }
+  .icons {
+    top: 1rem;
+    right: 1.25rem;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+    filter: invert(1) brightness(0.75);
+  }
+  &:hover {
+    color: #fff;
+    border-color: transparent;
+    .card-footer {
+      color: #fff;
+    }
+    .icons {
+      filter: invert(1) brightness(1);
+    }
+  }
+  &-money {
+    padding: 15px;
+    margin-bottom: 15px;
+    &:hover {
+      color: #4b4b4b;
+      border-color: #ddd;
+    }
+    h4 {
+      font-size: 0.8rem;
+    }
+    &-num {
+      h4 {
+        font-size: 1rem;
+        margin-bottom: 0;
+      }
+    }
+    // >>
+    @media (min-width: 768px) {
+      h4 {
+        font-size: 1rem;
+      }
+      &-num {
+        h4 {
+          font-size: 1.5rem;
+        }
+        font-size: 1.5rem;
+        text-align: right;
+        border-left: 1px solid #ddd;
+      }
+    }
+  }
+}
+
+.card-green {
+  .card-footer {
+    color: #88b04b;
+  }
+  &:hover {
+    background-color: #88b04b;
+  }
+}
+.card-orange {
+  .card-footer {
+    color: #f2994a;
+  }
+  &:hover {
+    background-color: #f2994a;
+  }
+}
+.card-red {
+  min-height: 120px;
+  .card-footer {
+    color: #eb5757;
+  }
+  &:hover {
+    background-color: #eb5757;
+  }
+}
+
+.btn-zoom {
+  padding: 0;
+  line-height: 1;
+  .icons {
+    opacity: 0.75;
+  }
+  .icon-cross {
+    display: none;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+  &.open-zoom {
+    z-index: 12;
+    position: fixed;
+    height: 50px;
+    width: auto;
+    right: 15px;
+    left: auto;
+    top: 10px;
+    margin: 0 auto;
+    padding: 0;
+    .icon-cross {
+      display: block;
+      filter: invert(100%) brightness(1);
+      background-size: 40px;
+      height: 40px;
+      width: 40px;
+    }
+    .icon-frame-expand {
+      display: none;
+    }
+  }
+}
+
+.open-zoom {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 11;
+  background: $main-color;
+  left: 0;
+  top: 0;
+  margin: 0;
+  -webkit-align-items: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.2s linear;
+  overflow: scroll;
+  @media (min-width: 1024px) {
+    padding: 0 15%;
+    .card {
+      margin-top: -50px;
+      &-title {
+        margin-bottom: 30px;
+      }
+      &-number-foo {
+        font-size: 3rem;
+      }
+    }
+  }
+  @media (max-width: 400px) {
+    padding: 20% 0;
+  }
+  .card {
+    border: 0;
+    color: #fff;
+    background: none;
+    min-height: 100px;
+    &-title {
+      font-size: 0.85rem;
+    }
+    &-point,
+    &-number-body,
+    .icons {
+      display: none;
+    }
+    &-footer {
+      text-align: center;
+    }
+    &-number-foo {
+      color: #fff;
+      opacity: 0.95;
+      white-space: nowrap;
+    }
+  }
+}

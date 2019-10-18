@@ -1,0 +1,51 @@
+.table {
+  font-size: 14px;
+  border-top: 0;
+  th {
+    border-top: 0;
+  }
+  .fix-w-id,
+  .multiLineEllipsis,
+  .fix-w-date {
+    word-break: break-all;
+  }
+  .fix-w-id {
+    min-width: 150px;
+  }
+  .multiLineEllipsis {
+    max-width: 400px;
+  }
+  .btn-xs {
+    padding: 0 5px;
+    font-size: 12px;
+  }
+  .badge {
+    padding: 5px 8px;
+  }
+  &-align-right {
+    thead th:last-child,
+    tbody td:last-child {
+      text-align: right;
+    }
+  }
+  &-warning {
+    .multiLineEllipsis {
+      &::before,
+      &::after {
+        background: #ffeeba;
+      }
+    }
+  }
+  &-striped tbody tr:nth-of-type(odd) {
+    .multiLineEllipsis {
+      &::before,
+      &::after {
+        background: #f2f2f2;
+      }
+    }
+  }
+}
+.table-auto-scroll {
+  max-height: 300px;
+  overflow-y: auto;
+}
